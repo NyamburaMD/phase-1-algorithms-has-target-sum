@@ -1,20 +1,25 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Create a set to store numbers we've seen
+  const seenNumbers = new Set();
+
+  // Iterate through each number in the array
+  for (const number of array) {
+    // Calculate the number needed to reach the target sum
+    const neededNumber = target - number;
+
+    // Check if the needed number is already in the set
+    if (seenNumbers.has(neededNumber)) {
+      return true; // If found, return true
+    }
+
+    // Add the current number to the set
+    seenNumbers.add(number);
+  }
+
+  return false; // If no pair is found, return false
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
 
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
